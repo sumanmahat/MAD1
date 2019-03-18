@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">RecycleView</string>
+    <string name="kale"><h1>Kale/Lemon Sandwiches</h1><br></br><br></br>
+        <h2>
+        This sandwich is stunningly delicious and tastes as good as it is healthy. Any grens of choice will work. the lemon adds on almost sweeet taste. Be generous with id!
+    </h2></string>
+    
+    <string name="mango"><h1>Mango-Lime Bean Salad</h1><h2>Everyone loves, so double or even  triple the recipe! it vanishes in a flash</h2></string>
+
+    <string name="sweet"><h1>Sweet Potato</h1><h2>this soup is so good Essy and i ate it all the first time i made it.</h2></string>
+    <string name="lime"><h1>Lime Mousse</h1><h2>This is fabulous alone, topped with fruit of ay kind or as a frosting on cake.</h2></string>
+</resources>
