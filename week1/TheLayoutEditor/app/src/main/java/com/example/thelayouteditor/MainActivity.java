@@ -49,11 +49,26 @@ public class MainActivity extends AppCompatActivity {
     public void reset(){
         count=0;
         txt_count.setText(count.toString());
+        btn_zero.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
 
     }
 
     public void increasecount(){
         count++;
-        txt_count.setText(count.toString());
+
+        if (count != null){
+            txt_count.setText(count.toString());
+
+            if (count %2 ==0){
+                btn_zero.setBackgroundColor(getResources().getColor(R.color.Foreven));
+            }else {
+                btn_zero.setBackgroundColor(getResources().getColor(R.color.Forodd));
+            }
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
     }
 }
