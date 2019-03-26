@@ -1,5 +1,6 @@
 package com.example.navigationactivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -26,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+
     }
 
     @Override
@@ -48,5 +51,20 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void showDonutOrder(View view){
+        Intent i= new Intent(getApplicationContext(),NextActivity.class);
+        startActivity(i);
+    }
+
+    public void showFroyoOrder(View view){
+        Intent i= new Intent(getApplicationContext(),NextActivity.class);
+        startActivity(i);
+    }
+
+    public void showIceCreamOrder(View view){
+        Intent i= new Intent(getApplicationContext(),NextActivity.class);
+        startActivity(i);
     }
 }
