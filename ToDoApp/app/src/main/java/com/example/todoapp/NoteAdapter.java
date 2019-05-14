@@ -11,14 +11,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteHolder> {
-    private List<Note> notes= new ArrayList<>();
+    private List<Note> notes = new ArrayList<>();
+    private OnItemClickListner listner;
 
 
     @NonNull
     @Override
     public NoteHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
-        View itemView= LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.note_item, parent,false);
+        View itemView = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.note_item, parent, false);
 
         return new NoteHolder(itemView);
     }
@@ -26,7 +27,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteHolder> {
     @Override
     public void onBindViewHolder(@NonNull NoteHolder noteHolder, int i) {
 
-        Note currentnote= notes.get(i);
+        Note currentnote = notes.get(i);
         noteHolder.title.setText(currentnote.getTitle());
         noteHolder.description.setText(currentnote.getDescription());
         noteHolder.priority.setText(String.valueOf(currentnote.getPriority()));
@@ -38,24 +39,47 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteHolder> {
         return notes.size();
     }
 
-    public void setNotes(List<Note> notes){
-        this.notes= notes;
+    public void setNotes(List<Note> notes) {
+        this.notes = notes;
         notifyDataSetChanged();
     }
 
-    class NoteHolder extends RecyclerView.ViewHolder{
-        private TextView title;
-        private TextView priority;
-        private TextView description;
+    public Note getNoteAt(int position) {
+        return notes.get(position);
+    }
 
-        public NoteHolder(View itemView){
+    class NoteHolder extends RecyclerView.ViewHolder {
+        private TextView title;
+        private TextView description;
+        private TextView priority;
+
+
+        public NoteHolder(View itemView) {
             super(itemView);
-            title= itemView.findViewById(R.id.title);
-            priority= itemView.findViewById(R.id.text_view_priority);
-            description= itemView.findViewById(R.id.description);
+            title = itemView.findViewById(R.id.title);
+            description = itemView.findViewById(R.id.description);
+            priority = itemView.findViewById(R.id.text_view_priority);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if (listner != null && position != RecyclerView.NO_POSITION) {
+                        listner.onItemClick(notes.get(position));
+                    }
+                }
+            });
 
 
         }
 
+    }
+
+    public interface OnItemClickListner {
+        void onItemClick(Note note);
+    }
+
+    public void setOnItemClickListener(OnItemClickListner listener) {
+        this.listner = listener;
     }
 }
