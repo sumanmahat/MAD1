@@ -1,16 +1,23 @@
 package com.example.todoapp;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.NumberPicker;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
-public class AddEditNoteActivity extends AppCompatActivity {
+import java.util.Calendar;
+
+public class AddEditNoteActivity extends AppCompatActivity implements View.OnClickListener {
     public static final String EXTRA_ID=
             "com.example.todoapp.EXTRA_ID";
     public static final String EXTRA_TITLE=
@@ -20,7 +27,7 @@ public class AddEditNoteActivity extends AppCompatActivity {
     public static final String EXTRA_PRIORITY=
             "com.example.todoapp.EXTRA_PRIORITY";
 
-    private EditText editTitle, editDescription;
+    private EditText editTitle, editDescription,newTodoDateAndTime;
     private NumberPicker numberPicker;
 
     @Override
@@ -31,6 +38,9 @@ public class AddEditNoteActivity extends AppCompatActivity {
         editTitle = findViewById(R.id.edit_title);
         editDescription = findViewById(R.id.edit_description);
         numberPicker = findViewById(R.id.number_picker);
+        newTodoDateAndTime = findViewById(R.id.newTodoDateAndTime);
+
+        newTodoDateAndTime.setOnClickListener(this);
 
 
         numberPicker.setMinValue(1);
@@ -60,8 +70,9 @@ public class AddEditNoteActivity extends AppCompatActivity {
         String title= editTitle.getText().toString();
         String description= editDescription.getText().toString();
         int priority =  numberPicker.getValue();
-        if (title.trim().isEmpty() || description.trim().isEmpty()){
-            Toast.makeText(this, "Please insert title and description", Toast.LENGTH_SHORT).show();
+        String dateAndTime = newTodoDateAndTime.getText().toString();
+        if (title.trim().isEmpty() || description.trim().isEmpty() || dateAndTime.trim().isEmpty()){
+            Toast.makeText(this, "Please insert title, description, date and time.", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -90,5 +101,28 @@ public class AddEditNoteActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        Calendar calender = Calendar.getInstance();
+        int year = calender.get(Calendar.YEAR);
+        int month = calender.get(Calendar.MONTH);
+        int day = calender.get(Calendar.DAY_OF_MONTH);
+        final int hour = calender.get(Calendar.HOUR_OF_DAY);
+        final int minute = calender.get(Calendar.MINUTE);
+        new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                final String date = year + "/" + month + "/" + dayOfMonth;
+                new TimePickerDialog(AddEditNoteActivity.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        String time = hourOfDay + ":" + minute;
+                        newTodoDateAndTime.setText(date + " " + time);
+                    }
+                }, hour, minute, false).show();
+            }
+        }, year, month, day).show();
     }
 }
