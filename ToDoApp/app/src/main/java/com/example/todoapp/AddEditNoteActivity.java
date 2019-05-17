@@ -2,6 +2,7 @@ package com.example.todoapp;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,11 +10,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.NumberPicker;
-import android.widget.TimePicker;
 import android.widget.Toast;
+
+import com.example.todoapp.database.Note;
 
 import java.util.Calendar;
 
@@ -26,6 +27,8 @@ public class AddEditNoteActivity extends AppCompatActivity implements View.OnCli
             "com.example.todoapp.EXTRA_DESCRIPTION";
     public static final String EXTRA_PRIORITY=
             "com.example.todoapp.EXTRA_PRIORITY";
+    public static final String EXTRA_DATETIME=
+            "com.example.todoapp.EXTRA_DATETIME";
 
     private EditText editTitle, editDescription,newTodoDateAndTime;
     private NumberPicker numberPicker;
@@ -38,13 +41,14 @@ public class AddEditNoteActivity extends AppCompatActivity implements View.OnCli
         editTitle = findViewById(R.id.edit_title);
         editDescription = findViewById(R.id.edit_description);
         numberPicker = findViewById(R.id.number_picker);
+     //   dateAndTime= findViewById(R.id.newTodoDateAndTime);
         newTodoDateAndTime = findViewById(R.id.newTodoDateAndTime);
 
         newTodoDateAndTime.setOnClickListener(this);
 
 
         numberPicker.setMinValue(1);
-        numberPicker.setMaxValue(5);
+        numberPicker.setMaxValue(3);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
 
         Intent intent = getIntent();
@@ -53,6 +57,7 @@ public class AddEditNoteActivity extends AppCompatActivity implements View.OnCli
             editTitle.setText(intent.getStringExtra(EXTRA_TITLE));
             editDescription.setText(intent.getStringExtra(EXTRA_DESCRIPTION));
             numberPicker.setValue(intent.getIntExtra(EXTRA_PRIORITY,1));
+            newTodoDateAndTime.setText(intent.getStringExtra(EXTRA_DATETIME));
 
         }else {
             setTitle("Add Note");
@@ -76,17 +81,13 @@ public class AddEditNoteActivity extends AppCompatActivity implements View.OnCli
             return;
         }
 
-        Intent intent= new Intent();
-        intent.putExtra(EXTRA_TITLE,title);
-        intent.putExtra(EXTRA_DESCRIPTION,description);
-        intent.putExtra(EXTRA_PRIORITY,priority);
-
         int id= getIntent().getIntExtra(EXTRA_ID,-1);
-        if (id !=-1){
-            intent.putExtra(EXTRA_ID,id);
-        }
 
-        setResult(RESULT_OK,intent);
+        NoteViewModel noteViewModel = ViewModelProviders.of(this).get(NoteViewModel.class);
+        Note note= new Note(title,description,priority,dateAndTime);
+        note.setId(id);
+        noteViewModel.update(note);
+        Toast.makeText(this, "Note Updated", Toast.LENGTH_SHORT).show();
         finish();
 
     }
@@ -111,18 +112,12 @@ public class AddEditNoteActivity extends AppCompatActivity implements View.OnCli
         int day = calender.get(Calendar.DAY_OF_MONTH);
         final int hour = calender.get(Calendar.HOUR_OF_DAY);
         final int minute = calender.get(Calendar.MINUTE);
-        new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                final String date = year + "/" + month + "/" + dayOfMonth;
-                new TimePickerDialog(AddEditNoteActivity.this, new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        String time = hourOfDay + ":" + minute;
-                        newTodoDateAndTime.setText(date + " " + time);
-                    }
-                }, hour, minute, false).show();
-            }
+        new DatePickerDialog(this, (view, year1, month1, dayOfMonth) -> {
+            final String date = year1 + "/" + month1 + "/" + dayOfMonth;
+            new TimePickerDialog(AddEditNoteActivity.this, (view1, hourOfDay, minute1) -> {
+                String time = hourOfDay + ":" + minute1;
+                newTodoDateAndTime.setText(date + " " + time);
+            }, hour, minute, false).show();
         }, year, month, day).show();
     }
 }

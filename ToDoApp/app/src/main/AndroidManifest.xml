@@ -6,10 +6,11 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Setting.SettingActivity"></activity>
+        <activity android:name=".AddNoteActivity"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".AddEditNoteActivity"
             android:parentActivityName=".MainActivity" />
@@ -17,10 +18,9 @@
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:launchMode="singleTop"
-            android:theme="@style/CustomStyle.DarkTheme">
+            android:theme="@style/CustomStyle">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

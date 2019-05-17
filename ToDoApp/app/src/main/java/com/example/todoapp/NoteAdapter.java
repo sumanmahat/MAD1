@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.todoapp.database.Note;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +33,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteHolder> {
         noteHolder.title.setText(currentnote.getTitle());
         noteHolder.description.setText(currentnote.getDescription());
         noteHolder.priority.setText(String.valueOf(currentnote.getPriority()));
+        noteHolder.dateTime.setText(currentnote.getDateTime());
 
     }
 
@@ -52,6 +55,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteHolder> {
         private TextView title;
         private TextView description;
         private TextView priority;
+        private TextView dateTime;
 
 
         public NoteHolder(View itemView) {
@@ -59,6 +63,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteHolder> {
             title = itemView.findViewById(R.id.title);
             description = itemView.findViewById(R.id.description);
             priority = itemView.findViewById(R.id.text_view_priority);
+            dateTime= itemView.findViewById(R.id.dateTime);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

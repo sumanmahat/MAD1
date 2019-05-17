@@ -11,15 +11,28 @@ ToDoApplication
 
 **Download** https://github.com/sumanmahat/MAD1/tree/master/ToDoApp
 
-[![Memento on F-Droid](https://user-images.githubusercontent.com/32419723/31298395-444a0bce-aaea-11e7-8624-cd38636fbf42.png)](https://f-droid.org/packages/github.yaa110.memento/)
+## Android features used in this app:
+•	Activities
+•	Fragments
+•	RecyclerView
+•	Adapters
+•	RoomDatabase
+•	Dao
+
 
 ## Dependencies
 
-- **RichEditor for Android** [RichEditor for Android](https://github.com/wasabeef/richeditor-android) is a beautiful Rich Text WYSIWYG Editor for Android.
-- **Material Dialogs** [Material Dialogs](https://github.com/afollestad/material-dialogs) is a beautiful, fluid, and customizable dialogs API.
+- Room components
+   - implementation "android.arch.persistence.room:runtime:$rootProject.roomVersion"
+   - annotationProcessor "android.arch.persistence.room:compiler:$rootProject.roomVersion"
+   - androidTestImplementation "android.arch.persistence.room:testing:$rootProject.roomVersion"
 
+- Lifecycle components
+   - implementation "android.arch.lifecycle:extensions:$rootProject.archLifecycleVersion"
+   - annotationProcessor "android.arch.lifecycle:compiler:$rootProject.archLifecycleVersion"
+   
 ## Screenshots
 
 ![Screenshot](https://raw.githubusercontent.com/yaa110/Memento/master/Screenshots/001.png)
-![Screenshot](https://www.google.com/search?q=mvvm&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiqyof0oqLiAhVHfisKHd3cC28Q_AUIDigB&cshid=1558086099536772&biw=1366&bih=635#imgrc=p4WKzHzDoQzxhM:)
+![Screenshot](https://raw.githubusercontent.com/yaa110/Memento/master/Screenshots/002.png)
 

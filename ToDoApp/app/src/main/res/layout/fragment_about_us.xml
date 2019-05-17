@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".fragments.AboutUsFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="About Us"
+        android:textSize="15sp"
+        android:textColor="@color/primary_text"
+        android:textStyle="bold"
+        android:fontFamily="@font/acme"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/acme"
+        android:textSize="13sp"
+        android:textColor="@color/primary_text"
+        android:layout_height="wrap_content"
+        android:text="It is a simple note taking mobile application. this application help you to write down all the important task we want to remember."/>
+
+</LinearLayout>

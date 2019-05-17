@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#FFFFFF"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/imgProfile"
+            android:layout_width="80dp"
+            android:layout_marginTop="54dp"
+            android:layout_height="80dp"
+            android:src="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/tvUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/acme"
+            android:text="To Do App"
+            android:textColor="#FFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:fontFamily="@font/acme"
+            android:text="Version 1.0.0"
+            android:textColor="#FFF"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/mnuHome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:id="@+id/imgHome"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/home" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/imgHome"
+            android:layout_alignBottom="@+id/imgHome"
+            android:layout_marginLeft="16dp"
+            android:layout_toEndOf="@+id/imgHome"
+            android:layout_toRightOf="@id/imgHome"
+            android:fontFamily="@font/acme"
+            android:gravity="center"
+            android:text="Home"
+            android:textColor="@color/primary_text"
+            android:textSize="13sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/imgHome"
+            android:background="#f1f1f1" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/mnuAddTodo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imgAddTodo"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/add" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/imgAddTodo"
+            android:layout_alignBottom="@id/imgAddTodo"
+            android:layout_marginLeft="16dp"
+            android:layout_toEndOf="@id/imgAddTodo"
+            android:layout_toRightOf="@id/imgAddTodo"
+            android:fontFamily="@font/acme"
+            android:gravity="center"
+            android:text="Add To Do"
+            android:textColor="@color/primary_text"
+            android:textSize="13sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/imgAddTodo"
+            android:background="#f1f1f1" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/mnuDelete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imgDelete"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/ic_delete_" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/imgDelete"
+            android:layout_alignBottom="@id/imgDelete"
+            android:layout_marginLeft="16dp"
+            android:layout_toEndOf="@id/imgDelete"
+            android:layout_toRightOf="@id/imgDelete"
+            android:fontFamily="@font/acme"
+            android:gravity="center"
+            android:text="Delete All Notes"
+            android:textColor="@color/primary_text"
+            android:textSize="13sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/imgDelete"
+            android:background="#f1f1f1" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/mnuAboutUs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imgAboutUs"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/aboutus" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/imgAboutUs"
+            android:layout_alignBottom="@id/imgAboutUs"
+            android:layout_marginLeft="16dp"
+            android:layout_toEndOf="@id/imgAboutUs"
+            android:layout_toRightOf="@id/imgAboutUs"
+            android:fontFamily="@font/acme"
+            android:gravity="center"
+            android:text="About Us"
+            android:textColor="@color/primary_text"
+            android:textSize="13sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/imgAboutUs"
+            android:background="#f1f1f1" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/mnuShare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imgShare"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/share" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/imgShare"
+            android:layout_alignBottom="@id/imgShare"
+            android:layout_marginLeft="16dp"
+            android:layout_toEndOf="@id/imgShare"
+            android:layout_toRightOf="@id/imgShare"
+            android:fontFamily="@font/acme"
+            android:gravity="center"
+            android:text="Share"
+            android:textColor="@color/primary_text"
+            android:textSize="13sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/imgShare"
+            android:background="#f1f1f1" />
+
+    </RelativeLayout>
+
+</LinearLayout>

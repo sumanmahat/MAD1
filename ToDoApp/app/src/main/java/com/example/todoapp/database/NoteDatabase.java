@@ -1,4 +1,4 @@
-package com.example.todoapp;
+package com.example.todoapp.database;
 
 import android.arch.persistence.db.SupportSQLiteDatabase;
 import android.arch.persistence.room.Database;
@@ -9,7 +9,7 @@ import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 
 
-@Database(entities = {Note.class},version = 1, exportSchema = false)
+@Database(entities = {Note.class},version = 1)
 public abstract class NoteDatabase extends RoomDatabase {
 
     private static NoteDatabase instance;
@@ -42,9 +42,9 @@ public abstract class NoteDatabase extends RoomDatabase {
         }
         @Override
         protected Void doInBackground(Void... voids) {
-            noteDao.insert(new Note("Title 1","Description 1",1));
-            noteDao.insert(new Note("Title 2","Description 2",2));
-            noteDao.insert(new Note("Title 3","Description 3",3));
+            noteDao.insert(new Note("Title 1","Description 1",1,"11/05/2019"));
+            noteDao.insert(new Note("Title 2","Description 2",2,"11/05/2019"));
+            noteDao.insert(new Note("Title 3","Description 3",3,"11/05/2019"));
             return null;
         }
     }
