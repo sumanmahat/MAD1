@@ -33,6 +33,9 @@ ToDoApplication
    
 ## Screenshots
 
-![Screenshot](https://raw.githubusercontent.com/yaa110/Memento/master/Screenshots/001.png)
-![Screenshot](https://raw.githubusercontent.com/yaa110/Memento/master/Screenshots/002.png)
+![Screenshot](https://github.com/sumanmahat/MAD1/blob/master/ToDoApp/Screenshots/one.png)
+![Screenshot](https://github.com/sumanmahat/MAD1/blob/master/ToDoApp/Screenshots/two.jpg)
+![Screenshot](https://github.com/sumanmahat/MAD1/blob/master/ToDoApp/Screenshots/three.jpg)
+![Screenshot](https://github.com/sumanmahat/MAD1/blob/master/ToDoApp/Screenshots/four.png)
+![Screenshot](https://github.com/sumanmahat/MAD1/blob/master/ToDoApp/Screenshots/five.png)
 
